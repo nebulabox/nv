@@ -7,6 +7,10 @@
 #include <sys/attr.h>
 #include <sys/stat.h>
 #include <sys/mount.h>
+#include <AssertMacros.h>
+#define require_noerr __Require_noErr
+#define require_action __Require_Action
+#define verify_noerr __Verify_noErr
 
 __private_extern__ u_int32_t volumeCapabilities(const char *path)
 {

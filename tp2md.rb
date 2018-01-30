@@ -58,4 +58,4 @@ end
 
 puts header.join("\n") + "\n" unless header.nil?
 puts "<style>.tag strong {font-weight:normal;color:#555} .tag a {text-decoration:none;border:none;color:#777}</style>"
-puts output.gsub(/\[\[(.*?)\]\]/,"<a href=\"nvalt://find/\\1\">\\1</a>").gsub(/(@[^ \n\r\(]+)((\()([^\)]+)(\)))?/,"<em class=\"tag\"><a href=\"nvalt://find/\\0\">\\1\\3<strong>\\4</strong>\\5</a></em>")
+puts output.gsub(/\[\[(.*?)\]\]/,"<a href=\"cnotes://find/\\1\">\\1</a>").gsub(/(@[^ \n\r\(]+)((\()([^\)]+)(\)))?/,"<em class=\"tag\"><a href=\"cnotes://find/\\0\">\\1\\3<strong>\\4</strong>\\5</a></em>")

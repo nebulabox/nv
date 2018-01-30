@@ -1280,12 +1280,12 @@ copyRTFType:
 		return;
 	}
 	
-	if ([aLink isKindOfClass:[NSURL class]] && [[aLink scheme] isEqualToString:@"nvalt"]) {
+	if ([aLink isKindOfClass:[NSURL class]] && [[aLink scheme] isEqualToString:@"cnotes"]) {
         NSUInteger flags=[currentEvent modifierFlags];
         if (((flags&NSDeviceIndependentModifierFlagsMask)==(flags&NSCommandKeyMask))&&((flags&NSDeviceIndependentModifierFlagsMask)>0)) {
             NSString *newURLString=[[aLink lastPathComponent]stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSString *txtString=[[NSString stringWithFormat:@"[[%@]]",[aLink lastPathComponent]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-            newURLString=[NSString stringWithFormat:@"nvalt://make/?title=%@&txt=%@",newURLString,txtString];
+            newURLString=[NSString stringWithFormat:@"cnotes://make/?title=%@&txt=%@",newURLString,txtString];
 //            NSLog(@"newurlstring:%@",newURLString);
             NSURL *newURL=[NSURL URLWithString:newURLString];
 //            NSLog(@"interpret from cmd-keydown OLD URL:||%@||  AND NEW URL:|%@|",[aLink absoluteString],[newURL absoluteString]);

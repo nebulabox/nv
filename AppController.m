@@ -49,7 +49,7 @@
 //#import "ETScrollView.h"
 #import "NSFileManager+DirectoryLocations.h"
 #import "nvaDevConfig.h"
-#import <Sparkle/SUUpdater.h>
+//#import <Sparkle/SUUpdater.h>
 
 #define NSApplicationPresentationAutoHideMenuBar (1 <<  2)
 #define NSApplicationPresentationHideMenuBar (1 <<  3)
@@ -57,9 +57,8 @@
 #define NSApplicationPresentationHideDock (1 <<  1)
 //#define NSApplicationActivationPolicyAccessory
 
-#define kSparkleUpdateFeedForLions @"https://updates.designheresy.com/nvalt/updates.xml"
-#define kSparkleUpdateFeedForSnowLeopard @"http://abyss.designheresy.com/nvalt2/nvalt2snowleopardfeed.xml"
-//http://abyss.designheresy.com/nvalt/betaupdates.xml
+#define kSparkleUpdateFeedForLions @""
+#define kSparkleUpdateFeedForSnowLeopard @""
 
 #define kSplitViewExpandedDividerThickness 8.0f
 #define kSplitViewCollapsedDividerThickness 5.0f
@@ -354,23 +353,23 @@ void outletObjectAwoke(id sender) {
     //    }else{
     NSString *frameworkPath = [[[NSBundle bundleForClass:[self class]] privateFrameworksPath] stringByAppendingPathComponent:@"Sparkle.framework"];
     if ([[NSBundle bundleWithPath:frameworkPath] load]) {
-        SUUpdater *updater =[SUUpdater sharedUpdater];
-        if (IsLionOrLater) {
-            [updater setFeedURL:[NSURL URLWithString:kSparkleUpdateFeedForLions]];
-        }else{
-            [updater setFeedURL:[NSURL URLWithString:kSparkleUpdateFeedForSnowLeopard]];
-        }
-        [sparkleUpdateItem setTarget:updater];
-        [sparkleUpdateItem setAction:@selector(checkForUpdates:)];
-        NSMenuItem *siSparkle = [statBarMenu itemWithTag:902];
-        [siSparkle setTarget:updater];
-        [siSparkle setAction:@selector(checkForUpdates:)];
-        if (![[prefsController notationPrefs] firstTimeUsed]) {
-            //don't do anything automatically on the first launch; afterwards, check every 4 days, as specified in Info.plist
-            //				SEL checksSEL = @selector(setAutomaticallyChecksForUpdates:);
-            [updater setAutomaticallyChecksForUpdates:YES];
-            //				[updater methodForSelector:checksSEL](updater, checksSEL, YES);
-        }
+//        SUUpdater *updater =[SUUpdater sharedUpdater];
+//        if (IsLionOrLater) {
+//            [updater setFeedURL:[NSURL URLWithString:kSparkleUpdateFeedForLions]];
+//        }else{
+//            [updater setFeedURL:[NSURL URLWithString:kSparkleUpdateFeedForSnowLeopard]];
+//        }
+//        [sparkleUpdateItem setTarget:updater];
+//        [sparkleUpdateItem setAction:@selector(checkForUpdates:)];
+//        NSMenuItem *siSparkle = [statBarMenu itemWithTag:902];
+//        [siSparkle setTarget:updater];
+//        [siSparkle setAction:@selector(checkForUpdates:)];
+//        if (![[prefsController notationPrefs] firstTimeUsed]) {
+//            //don't do anything automatically on the first launch; afterwards, check every 4 days, as specified in Info.plist
+//            //                SEL checksSEL = @selector(setAutomaticallyChecksForUpdates:);
+//            [updater setAutomaticallyChecksForUpdates:YES];
+//            //                [updater methodForSelector:checksSEL](updater, checksSEL, YES);
+//        }
     } else {
         NSLog(@"Could not load %@!", frameworkPath);
     }
@@ -1119,32 +1118,32 @@ terminateApp:
 - (IBAction)showHelpDocument:(id)sender {
 	NSString *path = nil;
 	
-	switch ([sender tag]) {
-		case 1:		//shortcuts
-			path = [[NSBundle mainBundle] pathForResource:NSLocalizedString(@"Excruciatingly Useful Shortcuts", nil) ofType:@"nvhelp" inDirectory:nil];
-		case 2:		//acknowledgments
-			if (!path) path = [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"txt" inDirectory:nil];
-			[[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:[NSURL fileURLWithPath:path]] withAppBundleIdentifier:@"com.apple.TextEdit"
-											options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:NULL];
-			break;
-		case 3:		//product site
-			[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:NSLocalizedString(@"SiteURL", nil)]];
-			break;
-		case 4:		//development site
-			[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/ttscoff/nv/wiki"]];
-			break;
-        case 5:     //nvALT home
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://brettterpstra.com/project/nvalt/"]];
-            break;
-        case 6:     //ElasticThreads
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://elasticthreads.tumblr.com/nv"]];
-            break;
-        case 7:     //Brett Terpstra
-            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://brettterpstra.com"]];
-            break;
-		default:
-			NSBeep();
-	}
+//    switch ([sender tag]) {
+//        case 1:        //shortcuts
+//            path = [[NSBundle mainBundle] pathForResource:NSLocalizedString(@"Excruciatingly Useful Shortcuts", nil) ofType:@"nvhelp" inDirectory:nil];
+//        case 2:        //acknowledgments
+//            if (!path) path = [[NSBundle mainBundle] pathForResource:@"Acknowledgments" ofType:@"txt" inDirectory:nil];
+//            [[NSWorkspace sharedWorkspace] openURLs:[NSArray arrayWithObject:[NSURL fileURLWithPath:path]] withAppBundleIdentifier:@"com.apple.TextEdit"
+//                                            options:NSWorkspaceLaunchDefault additionalEventParamDescriptor:nil launchIdentifiers:NULL];
+//            break;
+//        case 3:        //product site
+//            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:NSLocalizedString(@"SiteURL", nil)]];
+//            break;
+//        case 4:        //development site
+//            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/ttscoff/nv/wiki"]];
+//            break;
+//        case 5:     //nvALT home
+//            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://brettterpstra.com/project/nvalt/"]];
+//            break;
+//        case 6:     //ElasticThreads
+//            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://elasticthreads.tumblr.com/nv"]];
+//            break;
+//        case 7:     //Brett Terpstra
+//            [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://brettterpstra.com"]];
+//            break;
+//        default:
+//            NSBeep();
+//    }
 }
 
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
@@ -2620,7 +2619,7 @@ terminateApp:
     }
     //        [[NSUserDefaults standardUserDefaults] setBool:!isVis forKey:@"ToolbarHidden"];
     if (isVis) {
-        [window setTitle:@"nvALT"];
+        [window setTitle:@"cNotes"];
         if (currentNote&&(![[field stringValue]isEqualToString:titleOfNote(currentNote)]))
             [field setStringValue:titleOfNote(currentNote)];
         

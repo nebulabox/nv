@@ -132,7 +132,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleGetInfoString</key>
-	<string>nvALT by David Halter and Brett Terpstra, based on NV 2.0 β5 Copyright © 2010 Zachary Schneirov, All Rights Reserved.</string>
+	<string>GPL</string>
 	<key>CFBundleIconFile</key>
 	<string>Notality.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -144,9 +144,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2.8</string>
+	<string>10.3</string>
 	<key>CFBundleSignature</key>
-	<string>N†l√</string>
+	<string></string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
@@ -155,20 +155,18 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>net.elasticthreads.nv</string>
+			<string>c.notes</string>
 		</dict>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>nvalt</string>
-				<string>nv</string>
+				<string>cnotes</string>
+				<string>cn</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>128</string>
-	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.productivity</string>
+	<string>1030</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
@@ -232,8 +230,8 @@
 	<key>SUScheduledCheckInterval</key>
 	<real>345600</real>
 	<key>SmartCrashReports_CompanyName</key>
-	<string>Notational.net</string>
+	<string></string>
 	<key>SmartCrashReports_EmailTicket</key>
-	<string>SCR-51ED0F7B2A</string>
+	<string></string>
 </dict>
 </plist>
